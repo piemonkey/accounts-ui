@@ -30,13 +30,8 @@ function indexBy(array, key) {
 class LoginForm extends Component {
   constructor(props) {
     super(props);
-    let {
+    const {
       formState,
-      loginPath,
-      signUpPath,
-      resetPasswordPath,
-      profilePath,
-      changePasswordPath
     } = props;
 
     if (formState === STATES.SIGN_IN && Package['accounts-password']) {
@@ -966,19 +961,6 @@ class LoginForm extends Component {
     this.setState({ messages: [] });
   }
 
-  componentWillMount() {
-    // XXX Check for backwards compatibility.
-    if (Meteor.isClient) {
-      const container = document.createElement('div');
-      ReactDOM.render(<Accounts.ui.Field message="test" />, container);
-      if (container.getElementsByClassName('message').length == 0) {
-        // Found backwards compatibility issue with 1.3.x
-        console.warn(`Implementations of Accounts.ui.Field must render message in v1.2.11.
-          https://github.com/studiointeract/accounts-ui/#deprecations`);
-      }
-    }
-  }
-
   componentWillUnmount() {
     if (this.hideMessageTimout) {
       clearTimeout(this.hideMessageTimout);
@@ -1013,14 +995,6 @@ LoginForm.propTypes = {
   profilePath: PropTypes.string,
   changePasswordPath: PropTypes.string,
 };
-LoginForm.defaultProps = {
-  formState: null,
-  loginPath: null,
-  signUpPath: null,
-  resetPasswordPath: null,
-  profilePath: null,
-  changePasswordPath: null,
-};
 
 Accounts.ui.LoginForm = LoginForm;
 
@@ -1030,6 +1004,6 @@ const LoginFormContainer = withTracker(() => {
   return ({
     user: Accounts.user(),
   });
-}, LoginForm);
+})(LoginForm);
 Accounts.ui.LoginForm = LoginFormContainer;
 export default LoginFormContainer
