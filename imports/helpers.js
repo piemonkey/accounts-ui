@@ -93,6 +93,10 @@ export function validateUsername(username, showMessage, clearMessage, formState)
   }
 }
 
+export function setRouterHistory(history) {
+  browserHistory = history;
+}
+
 export function redirect(redirect) {
   if (Meteor.isClient) {
     if (window.history) {

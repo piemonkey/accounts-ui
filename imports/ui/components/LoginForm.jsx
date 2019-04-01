@@ -6,6 +6,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { T9n } from 'meteor/softwarerero:accounts-t9n';
 import { KEY_PREFIX } from '../../login_session.js';
 import './Form.jsx';
+import { setRouterHistory } from '../../helpers';
 
 import {
   STATES,
@@ -53,6 +54,9 @@ class LoginForm extends Component {
   }
 
   componentDidMount() {
+    if (this.props.history) {
+      setRouterHistory(this.props.history);
+    }
     this.setState(prevState => ({ waiting: false, ready: true }));
     let changeState = Session.get(KEY_PREFIX + 'state');
     switch (changeState) {
