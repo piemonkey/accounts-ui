@@ -1,0 +1,10 @@
+{
+  "lockfileVersion": 1,
+  "dependencies": {
+    "meteor-accounts-t9n": {
+      "version": "2.5.2",
+      "resolved": "https://registry.npmjs.org/meteor-accounts-t9n/-/meteor-accounts-t9n-2.5.2.tgz",
+      "integrity": "sha512-NTyXEqCQXaGwqir1vZtvOX9VTE5/owJc5S2lZianoInsFtvdaNVy6FFBpEFP9fJuESnMtPO2EzTQW3ObQom+2Q=="
+    }
+  }
+}

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/studiointeract/accounts-ui",
   "dependencies": {
+    "meteor-accounts-t9n": "^2.5.2",
     "prop-types": "^15.5.8"
   },
   "peerDependencies": {
